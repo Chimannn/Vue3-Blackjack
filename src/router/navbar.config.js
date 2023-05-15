@@ -30,7 +30,7 @@ export default [
     },
     {
         name: 'my',
-        path: '/my',
+        path: '/person',
         component: () => import('@/views/my/index.vue'),
         meta: {
             title: '我的',

@@ -39,7 +39,7 @@ const SystemCard = [
   {
     text: '返回主页',
     icon: 'home-o',
-    to: '/'
+    to: '/home'
   },
   {
     text: '在Github点赞',

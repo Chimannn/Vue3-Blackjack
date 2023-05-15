@@ -4,7 +4,7 @@
 
         <Button size="large" class="startBtn" @click="start">点击开始</Button> 
         <Button size="normal" class="rule">游戏规则</Button> 
-        <Button size="normal" class="homepage">个人主页</Button> 
+        <Button size="normal" class="homepage" @click="gotoPerson">个人主页</Button> 
     </div>
 </template>
 
@@ -18,6 +18,10 @@ const router = useRouter();
 const start = () => {
     // document.getElementsByTagName("html")[0].style.fontSize = "16px"
     router.push({path: "/game"})
+}
+
+const gotoPerson = () => {
+    router.push({ path: '/person' })
 }
 
 </script>

@@ -15,8 +15,8 @@ const router = createRouter({
 	history: createWebHistory(import.meta.env.BASE_URL),
 	routes: [
 			{
-				name: "index",
-				path: "/",
+				name: "home",
+				path: "/home",
 				component: IndexPage
 			},
 			{
@@ -30,10 +30,17 @@ const router = createRouter({
 			// redirect: navbarConfig[0] || '/404',
 			// children: navbarConfig
 		// }, 
+			// {
+			// 	name: "home",
+			// 	path: "/home",
+			// 	component: PageLayout,
+			// 	children: pageConfig
+			// },
 			{
-				name: "home",
-				path: "/home",
+				name: "person",
+				path: "/person",
 				component: PageLayout,
+				redirect: "/person/profile1",
 				children: pageConfig
 			}, 
 			{

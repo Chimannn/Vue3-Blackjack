@@ -21,6 +21,9 @@
       </svg>
       Show Basic Strategy Hint
     </button>
+    <span class="gotoPer" @click="gotoPerson">
+      Personal Page 
+    </span>
     <span class="return" @click="returnHome">
       Return 
     </span>
@@ -44,6 +47,7 @@ import { game } from "@/stores/game"
 import GameLogo from './GameLogo.vue'
 import { computed } from "vue"
 import router from "@/router"
+import { Dialog } from "vant"
 
 const gameStore = game()
 
@@ -60,7 +64,18 @@ const toggleBasicStrategy = () => {
 }
 
 const returnHome = () => {
-  router.push({path:"/"})
+  Dialog.confirm({
+    title: 'warning',
+    message: '确认要退出游戏吗？'
+  }).then(() => {
+    router.push({path: "/home"})
+  }).catch(() => {
+    Dialog.close
+  });
+}
+
+const gotoPerson = () => {
+  router.push({path: "/person"})
 }
 </script>
 
@@ -151,11 +166,10 @@ const returnHome = () => {
   opacity: 0.85;
 }
 
-.return{
+.return, .gotoPer{
+  margin-top: .2rem;
   font-size: .5rem;
   text-decoration-line: underline;
-  // position: absolute;
-  // left: 0.8rem;
   color: #fff;
   width: 85%;
   display: block;

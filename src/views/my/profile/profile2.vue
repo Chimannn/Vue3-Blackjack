@@ -25,7 +25,7 @@
             <Cell icon="info-o" title="关于版本" is-link />
         </CellGroup>
         <CellGroup class="action-group">
-            <Cell icon="home-o" title="返回首页" is-link to="/" />
+            <Cell icon="home-o" title="返回首页" is-link to="/home" />
             <Cell icon="good-job-o" title="在Github点赞" is-link
                 url="https://github.com/Coder-XiaoYi/vue-mobile-template" />
             <Cell icon="good-job-o" title="在Gitee点赞" is-link url="https://gitee.com/liupeiqiang/vue-mobile-template" />
