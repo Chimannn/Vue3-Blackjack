@@ -14,7 +14,7 @@ router.beforeEach((to, from, next) => {
         /* has token*/
         to.meta.title && settingStore.setTitle(to.meta.title);
         if (to.path === '/login') {
-            next({ path: '/' })
+            next({path: "/"})
         } else {
             if (userStore.userId == null) {
                 // 判断当前用户是否已拉取完user_info信息
