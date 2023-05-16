@@ -10,6 +10,7 @@ import IndexPage from "@/components/Game/IndexPage.vue"
 import GamePage from "@/components/Game/GamePage.vue"
 
 import Login from "@/views/Login.vue"
+import ErrorPage from "@/views/404.vue"
 
 const router = createRouter({
 	history: createWebHistory(import.meta.env.BASE_URL),
@@ -47,7 +48,18 @@ const router = createRouter({
 				name: 'login',
 				path: '/login',
 				component: Login,
-			}]
+			},
+			{
+				name: "404",
+				path: "/404",
+				component: ErrorPage
+			},
+			{
+				name: "*",
+				path: "/:pathMatch(.*)*",
+				redirect: "/404"
+			}
+		]
 })
 
 export default router
