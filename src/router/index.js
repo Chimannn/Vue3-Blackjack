@@ -16,6 +16,11 @@ const router = createRouter({
 	history: createWebHistory(import.meta.env.BASE_URL),
 	routes: [
 			{
+				name: "/",
+				path: "",
+				redirect: "/home"
+			},
+			{
 				name: "home",
 				path: "/home",
 				component: IndexPage

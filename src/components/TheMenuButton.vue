@@ -28,7 +28,7 @@ const toggleDrawer = () => {gameStore.toggleDrawer({})}
 
 <style lang="scss" scoped>
 .menu-button {
-  display: none !important;
+  // display: none !important;
   align-items: center;
   justify-content: center;
   position: fixed;

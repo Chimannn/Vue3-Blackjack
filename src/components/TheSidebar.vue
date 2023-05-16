@@ -63,11 +63,13 @@ const toggleBasicStrategy = () => {
   gameStore.toggleBasicStrategy()
 }
 
+
 const returnHome = () => {
   Dialog.confirm({
     title: 'warning',
     message: '确认要退出游戏吗？'
   }).then(() => {
+    closeDrawer()
     router.push({path: "/home"})
   }).catch(() => {
     Dialog.close
@@ -75,6 +77,7 @@ const returnHome = () => {
 }
 
 const gotoPerson = () => {
+  closeDrawer()
   router.push({path: "/person"})
 }
 </script>

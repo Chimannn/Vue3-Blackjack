@@ -1,10 +1,11 @@
 <template>
     <div class="indexBG">
-        <GameLogo />
-
+        <GameLogo class="indexLogo" />
         <Button size="large" class="startBtn" @click="start">点击开始</Button> 
-        <Button size="normal" class="rule">游戏规则</Button> 
-        <Button size="normal" class="homepage" @click="gotoPerson">个人主页</Button> 
+        <div class="bottomBtn">
+            <Button size="normal" class="rule">游戏规则</Button> 
+            <Button size="normal" class="homepage" @click="gotoPerson">个人主页</Button> 
+        </div>
     </div>
 </template>
 
@@ -28,8 +29,13 @@ const gotoPerson = () => {
 
 <style scoped lang="scss">
 .indexBG{
-    width: 100vw;
-    height: 100vh;
+    .indexLogo{
+        display: block;
+        height: 2rem;
+        margin: 1rem auto;
+    }
+    // width: 100vw;
+    height: 100%;
     background: linear-gradient(
 		180deg,
 		rgba(117, 84, 160, 1) 7%,
@@ -50,9 +56,9 @@ const gotoPerson = () => {
         left: 50%;
         transform: translate(-50%,-50%);
         font-size: .75rem;
+        position: absolute;
     }
     .startBtn, .rule, .homepage{
-        position: absolute;
         color: white;
         box-shadow: -.027rem .1rem .75rem 0rem rgba(0,0,0,0.75);
 		background: rgba(0, 0, 0, 0.4);
@@ -61,13 +67,22 @@ const gotoPerson = () => {
     }
     .rule{
         width: 3rem;
-        top: 80%;
-        left: 1rem;
+        // top: 80%;
+        // left: 1rem;
     }
     .homepage{
         width: 3rem;
+        // top: 80%;
+        // right: 1rem;
+    }
+    .bottomBtn{
+        position: absolute;
+        left: 50%;
+        width: 8rem;
         top: 80%;
-        right: 1rem;
+        transform: translateX(-50%);
+        display: flex;
+        justify-content: space-between;
     }
 }
 </style>
