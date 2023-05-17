@@ -10,7 +10,7 @@ export default defineConfig(({ mode, command }) => {
   const env = loadEnv(mode, process.cwd())
   const { VITE_APP_ENV } = env
   return {
-    base: VITE_APP_ENV === 'production' ? '/vue-mobile-template/' : '/',
+    base: VITE_APP_ENV === 'production' ? '/BlackJack/' : '/',
     plugins: [
       vue(),
       styleImport({
