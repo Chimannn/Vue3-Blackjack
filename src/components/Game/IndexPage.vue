@@ -3,18 +3,28 @@
         <GameLogo class="indexLogo" />
         <Button size="large" class="startBtn" @click="start">点击开始</Button> 
         <div class="bottomBtn">
-            <Button size="normal" class="rule">游戏规则</Button> 
+            <Button size="normal" class="rule" @click="(() => showRules = !showRules)">游戏规则</Button> 
             <Button size="normal" class="homepage" @click="gotoPerson">个人主页</Button> 
         </div>
     </div>
+    <Popup v-model:show="showRules" :style="popupClass">规则内容</Popup>
 </template>
 
 <script setup>
 import { useRouter } from "vue-router";
-import { Button } from "vant";
+import { Button, Popup } from "vant";
+import { ref } from "vue";
 import GameLogo from "../GameLogo.vue"
 
 const router = useRouter();
+const showRules = ref(false)
+const popupClass = `{
+    z-index = 2013;
+    width: 80%;
+    height: 60%;
+    border-radius: 0.6rem;
+    text-align: center;
+}`
 
 const start = () => {
     // document.getElementsByTagName("html")[0].style.fontSize = "16px"
