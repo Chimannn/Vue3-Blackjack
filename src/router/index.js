@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
 // import navbarConfig from './navbar.config'
-import pageConfig from './page.config'
+// import pageConfig from './page.config'
 
 // import MainLayout from '@/layout/main.vue'
 import PageLayout from '@/layout/page.vue'
@@ -47,7 +47,35 @@ const router = createRouter({
 				path: "/person",
 				component: PageLayout,
 				redirect: "/person/profile1",
-				children: pageConfig
+				children: [
+					{
+						name: 'profile1',
+						path: '/person/profile1',
+						component: () => import('@/views/my/profile/profile1.vue'),
+						meta: {
+							title: '个人信息',
+							isNavBar: false
+						}
+					},
+					{
+						name: 'profile2',
+						path: '/person/profile2',
+						component: () => import('@/views/my/profile/profile2.vue'),
+						meta: {
+							title: '个人信息',
+							isNavBar: false
+						}
+					},
+					{
+						name: "purse",
+						path: "/person/purse",
+						component: () => import('@/views/my/Purse/index.vue'),
+						meta: {
+							title: '个人钱包',
+							isNavBar: false
+						}
+					}
+				]
 			}, 
 			{
 				name: 'login',

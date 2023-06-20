@@ -10,7 +10,7 @@
           </div>
         </div>
         <div class="profile-number">
-          <div class="profile-number-box">
+          <div class="profile-number-box" @click="gotoPurse">
             <span class="profile-number-box-num">1,892</span>
             <span class="profile-number-box-text">我的金币</span>
           </div>
@@ -34,6 +34,7 @@
 import { reactive } from 'vue';
 import { Image } from "vant";
 import GridCard from "@/components/GridCard/index.vue"
+import router from '@/router';
 
 const SystemCard = [
   {
@@ -74,6 +75,10 @@ const ActionCard = reactive({
 
 ActionCard.Order.dot = true;
 ActionCard.Profit.badge = "9+";
+
+const gotoPurse = () => {
+  router.push({path: "/person/purse"})
+}
 
 </script>
 
