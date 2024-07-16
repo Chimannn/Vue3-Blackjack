@@ -12,6 +12,7 @@
     "axios": "^0.26.1",
     "pinia": "^2.0.13",
     "postcss-pxtorem": "^6.0.0",
+    "qrcode": "^1.5.3",
     "vant": "^3.4.7",
     "vue": "^3.2.31",
     "vue-router": "^4.0.14"

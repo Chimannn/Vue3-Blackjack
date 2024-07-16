@@ -1,23 +1,29 @@
 <template>
     <div class="indexBG">
         <GameLogo class="indexLogo" />
-        <Button size="large" class="startBtn" @click="start">点击开始</Button> 
+        <div class="middleBtn">
+            <Button size="large" class="startBtn" @click="start">点击开始</Button> 
+            <Button size="large" class="transferBtn" @click="transfer">请喝咖啡（kaspa）</Button> 
+        </div>
         <div class="bottomBtn">
             <Button size="normal" class="rule" @click="(() => showRules = !showRules)">游戏规则</Button> 
             <Button size="normal" class="homepage" @click="gotoPerson">个人主页</Button> 
         </div>
     </div>
     <Popup v-model:show="showRules" :style="popupClass">规则内容</Popup>
+    <transferPop :show="show" @popupClosed="handlePopupClosed" />
 </template>
 
 <script setup>
 import { useRouter } from "vue-router";
 import { Button, Popup } from "vant";
+import transferPop from "./components/transferPop.vue";
 import { ref } from "vue";
 import GameLogo from "../GameLogo.vue"
 
 const router = useRouter();
 const showRules = ref(false)
+const show = ref(false)
 const popupClass = `{
     z-index = 2013;
     width: 80%;
@@ -27,12 +33,19 @@ const popupClass = `{
 }`
 
 const start = () => {
-    // document.getElementsByTagName("html")[0].style.fontSize = "16px"
     router.push({path: "/game"})
+}
+
+const transfer = () => {
+    show.value = true
 }
 
 const gotoPerson = () => {
     router.push({ path: '/person' })
+}
+
+const handlePopupClosed = () => {
+    show.value = false
 }
 
 </script>
@@ -44,7 +57,6 @@ const gotoPerson = () => {
         height: 2rem;
         margin: 1rem auto;
     }
-    // width: 100vw;
     height: 100%;
     background: linear-gradient(
 		180deg,
@@ -60,15 +72,19 @@ const gotoPerson = () => {
     );
     position: relative;
     overflow: hidden;
-    .startBtn{
+    .middleBtn{
         width: 8rem;
         top: 50%;
         left: 50%;
         transform: translate(-50%,-50%);
         font-size: .75rem;
         position: absolute;
+        .startBtn,.transferBtn {
+            width: 8rem;
+            margin-bottom: .8rem;
+        }
     }
-    .startBtn, .rule, .homepage{
+    .startBtn, .rule, .homepage, .transferBtn{
         color: white;
         box-shadow: -.027rem .1rem .75rem 0rem rgba(0,0,0,0.75);
 		background: rgba(0, 0, 0, 0.4);
@@ -77,13 +93,9 @@ const gotoPerson = () => {
     }
     .rule{
         width: 3rem;
-        // top: 80%;
-        // left: 1rem;
     }
     .homepage{
         width: 3rem;
-        // top: 80%;
-        // right: 1rem;
     }
     .bottomBtn{
         position: absolute;
